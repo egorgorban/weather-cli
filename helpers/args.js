@@ -1,4 +1,6 @@
-const getArgs = (argv) => {
+import { printError } from "../services/log.service.js";
+
+export const getArgs = (argv) => {
     // todo: cover with tests
     let options = {};
     let commands = [];
@@ -21,4 +23,31 @@ const getArgs = (argv) => {
     return { commands: commands, options: options };
 };
 
-export { getArgs };
+export const validateArgs = (args) => {
+    let COMMANDS = ["h", "help"];
+    let OPTIONS = ["c", "t"];
+
+    args.commands.forEach((command) => {
+        // Check for unknown commands
+        if (!COMMANDS.includes(command)) {
+            printError(`'${command}' is an unknown command`);
+        }
+        // Check for options without value (were treated as commands)
+        if (OPTIONS.includes(command)) {
+            printError(`switch '${command}' requires a value`);
+        }
+    });
+
+    Object.keys(args.options).forEach((option) => {
+        // Check for unknown options
+        if (!OPTIONS.includes(option)) {
+            printError(`switch '${option}' is unknown`);
+        }
+    });
+
+    return {
+        h: args.commands.includes("h") || args.commands.includes("help"),
+        t: args.options.t || args.options.token,
+        c: args.options.c || args.options.city,
+    };
+};
