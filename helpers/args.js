@@ -16,7 +16,7 @@ export const getArgs = (argv) => {
             } else if (index === array.length - 1 || array[index + 1].startsWith("-")) {
                 commands.push(value.slice(1));
             } else {
-                options[value.charAt(1)] = array[index + 1];
+                options[value.slice(1)] = array[index + 1];
             }
         }
     });
@@ -25,7 +25,7 @@ export const getArgs = (argv) => {
 
 export const validateArgs = (args) => {
     let COMMANDS = ["h", "help"];
-    let OPTIONS = ["c", "t"];
+    let OPTIONS = ["c", "city", "t", "token"];
 
     args.commands.forEach((command) => {
         // Check for unknown commands
