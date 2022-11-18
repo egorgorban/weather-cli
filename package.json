@@ -1,5 +1,5 @@
 {
-    "name": "weather-cli",
+    "name": "egorgorban-study-weather-cli-demo",
     "version": "1.0.0",
     "description": "CLI to find out the weather",
     "main": "weather.js",

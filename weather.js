@@ -1,4 +1,4 @@
-#!/usr/bin/env_mode
+#!/usr/bin/env node
 
 import { getArgs, validateArgs } from "./helpers/args.js";
 import { getIcon, getWeather } from "./services/api.service.js";
