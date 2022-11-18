@@ -1,6 +1,7 @@
 #!/usr/bin/env_mode
 
 import { getArgs, validateArgs } from "./helpers/args.js";
+import { getWeather } from "./services/api.service.js";
 import { printError, printSuccess, printHelp } from "./services/log.service.js";
 import { saveKeyValue } from "./services/storage.service.js";
 
@@ -19,6 +20,7 @@ const initCLI = async () => {
     if (args.h) printHelp();
     if (args.t) await saveItem("token", args.t);
     if (args.c) await saveItem("city", args.c);
+    // const data = await getWeather("Saint Petersburg");
 };
 
 initCLI();
