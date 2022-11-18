@@ -1,7 +1,9 @@
 import {} from "dotenv/config";
 
 export const Config = {
-    TOKEN: process.env.APP_WEATHER_TOKEN ?? "token",
-    CITY: process.env.APP_WEATHER_CITY ?? "city",
-    LANG: process.env.APP_WEATHER_LANG ?? "en"
+    TOKEN: "token",
+    CITY: "city",
+    TOKEN_VALUE: process.env.APP_WEATHER_TOKEN,
+    CITY_VALUE: process.env.APP_WEATHER_CITY,
+    LANG: process.env.APP_WEATHER_LANG ?? "en",
 };

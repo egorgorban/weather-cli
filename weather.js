@@ -43,8 +43,10 @@ const initCLI = async () => {
         !Object.values(args).some((el, i, arr) => {
             return el;
         })
-    )
-        await getForecast(await getKeyValue(Config.CITY));
+    ) {
+        const city = (await getKeyValue(Config.CITY)) ?? Config.CITY_VALUE;
+        await getForecast(city);
+    }
 };
 
 initCLI();
