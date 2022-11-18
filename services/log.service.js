@@ -12,9 +12,9 @@ export const printSuccess = function (success) {
 export const printHelp = function () {
     console.log(dedent`
     ${chalk.bgCyan(" HELP ")} 
-    no args\t\t->\tprint the current weather
-    -c [CITY]\t->\tset the 'city' param to a given value
-    -t [API_KEY]\t->\tset the 'token' param to a given value
-    -h --help\t->\tprint this message
+    no args\t\t\t->\tprint the current weather
+    -c -city [CITY]\t\t->\tset the 'city' param to a given value
+    -t -token [API_KEY]\t->\tset the 'token' param to a given value
+    -h -help\t\t->\tprint this message
     `);
 };
