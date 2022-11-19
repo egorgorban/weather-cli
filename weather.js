@@ -22,7 +22,7 @@ const getForecast = async function (city) {
     } catch (error) {
         // axios 404 error
         if (error?.response?.status == 404) {
-            printError(`404: The city ${getKeyValue(Config.CITY)} is not found`);
+            printError(`404: The city ${await getKeyValue(Config.CITY)} is not found`);
         } // axios 401 error
         else if (error?.response?.status == 401) {
             printError("401: Your Token is wrong");

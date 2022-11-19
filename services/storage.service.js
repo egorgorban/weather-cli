@@ -1,7 +1,8 @@
 import { join, resolve } from "path";
 import { readFile, writeFile } from "fs/promises";
+import { homedir } from "os";
 
-const dbPath = join(resolve("."), "data", "weather-data.json");
+const dbPath = join(homedir(), ".weather-data.json");
 
 const getDataFromDB = async function () {
     try {
@@ -19,6 +20,6 @@ export const saveKeyValue = async function (k, v) {
 };
 
 export const getKeyValue = async function (k) {
-    const data = await getDataFromDB();
+    const data = (await getDataFromDB()) || {};
     return data[k];
 };
